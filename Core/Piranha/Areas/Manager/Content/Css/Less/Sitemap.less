@@ -49,6 +49,54 @@ ul.sitemap {
             font-style: italic;
             color: #a2a2a2;
         }
+
+		&.block {
+			font-size: 12px;
+			background: #fff;
+			color: #999;
+
+			border: dashed 1px @form-border-color;
+			border-width: 0 1px;
+
+			span {
+				padding: 6px 20px;
+			}
+
+			.title {
+				border: none;
+
+				a {
+					color: @color-btn-light;
+				}
+
+				.action {
+					display: none;
+				}
+			}
+
+			&.last {
+				border-width: 0 1px 1px;
+				padding-bottom: 10px;
+			}
+
+			.block {
+				border-width: 0;
+				padding-bottom: 0;
+			}
+
+			.buttons {
+				opacity: 0.6;
+				padding: 5px 19px 5px 20px;
+			}
+		}
+
+		&.has-block.expanded {
+			>.title {
+				background: #fff;
+				border: dashed 1px @form-border-color;
+				border-width: 0 1px;
+			}
+		}
     }
 
     .action {
@@ -98,6 +146,10 @@ ul.sitemap {
 
     .buttons {
         width: 70px;
+
+		.delete {
+			float: right;
+		}
     }
 
     .date {

@@ -201,6 +201,12 @@ namespace Piranha.Models
 		public string TemplateName { get; private set; }
 
 		/// <summary>
+		/// Gets/sets if this page is a block.
+		/// </summary>
+		[Column(Name = "pagetemplate_is_block", Table = "pagetemplate")]
+		public bool IsBlock { get; internal set; }
+
+		/// <summary>
 		/// Gets/sets the created date.
 		/// </summary>
 		[Column(Name = "page_created")]
@@ -411,6 +417,10 @@ namespace Piranha.Models
 		public override bool Save(IDbTransaction tx = null) {
 			// Move seqno & save, we need a transaction for this
 			IDbTransaction t = tx != null ? tx : Database.OpenConnection().BeginTransaction();
+
+			// Make sure blocks are always hidden
+			if (IsBlock)
+				IsHidden = true;
 
 			// We only move pages around as drafts. When we publish we
 			// simply change states.

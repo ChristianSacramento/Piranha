@@ -115,6 +115,12 @@ namespace Piranha.Models
 		public string Permalink { get; private set; }
 
 		/// <summary>
+		/// Gets/sets the template id.
+		/// </summary>
+		[Column(Name = "page_template_id")]
+		public Guid TemplateId { get; set; }
+
+		/// <summary>
 		/// Gets/sets the template name.
 		/// </summary>
 		[Column(Name = "pagetemplate_name", Table = "pagetemplate")]
@@ -143,6 +149,12 @@ namespace Piranha.Models
 		/// </summary>
 		[Column(Name = "pagetemplate_redirect", Table = "pagetemplate")]
 		private string TemplateRedirect { get; set; }
+
+		/// <summary>
+		/// Gets/sets if this is a page block.
+		/// </summary>
+		[Column(Name = "pagetemplate_is_block", Table = "pagetemplate")]
+		public bool IsBlock { get; set; }
 
 		/// <summary>
 		/// Gets/sets the created date.
@@ -352,7 +364,7 @@ namespace Piranha.Models
 		public static int CountVisible(this List<Sitemap> pages) {
 			int count = 0;
 			foreach (Sitemap page in pages)
-				if (!page.IsHidden) count++;
+				if (!page.IsHidden && !page.IsBlock) count++;
 			return count;
 		}
 	}

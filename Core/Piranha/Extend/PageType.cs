@@ -67,6 +67,21 @@ namespace Piranha.Extend
 		public virtual bool ShowRedirect { get; protected set; }
 
 		/// <summary>
+		/// Gets/sets if this page type is a block.
+		/// </summary>
+		public virtual bool IsBlock { get; protected set; }
+
+		/// <summary>
+		/// Gets the page types a block can be created for.
+		/// </summary>
+		public virtual IList<Type> ParentTypes { get; protected set; }
+
+		/// <summary>
+		/// Gets if a page type can contain subpages or not.
+		/// </summary>
+		public virtual bool Subpages { get; protected set; }
+
+		/// <summary>
 		/// Gets the defíned properties.
 		/// </summary>
 		public virtual IList<string> Properties { get; protected set; }
@@ -79,6 +94,8 @@ namespace Piranha.Extend
 		public PageType() {
 			Properties = new List<string>();
 			Regions = new List<RegionType>();
+			ParentTypes = new List<Type>();
+			Subpages = true;
 
 			Preview = "<table class=\"template\"><tr><td></td></tr></table>";
 		}

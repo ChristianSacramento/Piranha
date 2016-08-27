@@ -33,6 +33,42 @@ ul.sitemap li.draft > span {
   font-style: italic;
   color: #a2a2a2;
 }
+ul.sitemap li.block {
+  font-size: 12px;
+  background: #fff;
+  color: #999;
+  border: dashed 1px #e2e2e2;
+  border-width: 0 1px;
+}
+ul.sitemap li.block span {
+  padding: 6px 20px;
+}
+ul.sitemap li.block .title {
+  border: none;
+}
+ul.sitemap li.block .title a {
+  color: #4aaae2;
+}
+ul.sitemap li.block .title .action {
+  display: none;
+}
+ul.sitemap li.block.last {
+  border-width: 0 1px 1px;
+  padding-bottom: 10px;
+}
+ul.sitemap li.block .block {
+  border-width: 0;
+  padding-bottom: 0;
+}
+ul.sitemap li.block .buttons {
+  opacity: 0.6;
+  padding: 5px 19px 5px 20px;
+}
+ul.sitemap li.has-block.expanded > .title {
+  background: #fff;
+  border: dashed 1px #e2e2e2;
+  border-width: 0 1px;
+}
 ul.sitemap .action {
   display: block;
   float: left;
@@ -66,6 +102,9 @@ ul.sitemap.media .icon {
 }
 ul.sitemap .buttons {
   width: 70px;
+}
+ul.sitemap .buttons .delete {
+  float: right;
 }
 ul.sitemap .date {
   width: 80px;

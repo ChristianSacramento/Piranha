@@ -290,7 +290,7 @@ namespace Piranha.Web
 					name += "." + suffix;
 
 					return new HtmlString(SiteUrl("~/" + (!draft ? Application.Current.Handlers.GetUrlPrefix("CONTENTHANDLER") :
-						Application.Current.Handlers.GetUrlPrefix("CONTENTDRAFT")) + "/") + name);
+						Application.Current.Handlers.GetUrlPrefix("CONTENTDRAFTHANDLER")) + "/") + name);
 				}
 				// Generate content url from id
 				return new HtmlString(SiteUrl("~/" + (!draft ? Application.Current.Handlers.GetUrlPrefix("CONTENT") : Application.Current.Handlers.GetUrlPrefix("CONTENTDRAFT")) +
@@ -528,7 +528,7 @@ namespace Piranha.Web
 				}
 				// Render items
 				foreach (Sitemap page in sm)
-					if (!page.IsHidden) RenderLI(curr, page, str, stoplevel);
+					if (!page.IsHidden && !page.IsBlock) RenderLI(curr, page, str, stoplevel);
 				// Render level end
 				if (Hooks.Menu.RenderLevelEnd != null) {
 					Hooks.Menu.RenderLevelEnd(this, str, cssclass);

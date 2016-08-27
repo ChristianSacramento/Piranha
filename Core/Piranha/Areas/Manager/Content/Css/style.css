@@ -1199,6 +1199,42 @@ ul.sitemap li.draft > span {
   font-style: italic;
   color: #a2a2a2;
 }
+ul.sitemap li.block {
+  font-size: 12px;
+  background: #fff;
+  color: #999;
+  border: dashed 1px #e2e2e2;
+  border-width: 0 1px;
+}
+ul.sitemap li.block span {
+  padding: 6px 20px;
+}
+ul.sitemap li.block .title {
+  border: none;
+}
+ul.sitemap li.block .title a {
+  color: #4aaae2;
+}
+ul.sitemap li.block .title .action {
+  display: none;
+}
+ul.sitemap li.block.last {
+  border-width: 0 1px 1px;
+  padding-bottom: 10px;
+}
+ul.sitemap li.block .block {
+  border-width: 0;
+  padding-bottom: 0;
+}
+ul.sitemap li.block .buttons {
+  opacity: 0.6;
+  padding: 5px 19px 5px 20px;
+}
+ul.sitemap li.has-block.expanded > .title {
+  background: #fff;
+  border: dashed 1px #e2e2e2;
+  border-width: 0 1px;
+}
 ul.sitemap .action {
   display: block;
   float: left;
@@ -1232,6 +1268,9 @@ ul.sitemap.media .icon {
 }
 ul.sitemap .buttons {
   width: 70px;
+}
+ul.sitemap .buttons .delete {
+  float: right;
 }
 ul.sitemap .date {
   width: 80px;
@@ -1564,6 +1603,9 @@ ul.list arrow-down {
   overflow: hidden;
   border: 1px solid #dddddd;
 }
+.edit.block {
+  height: 110px;
+}
 .grid_3 .edit,
 .templates .preview {
   margin-bottom: 5px;
@@ -1634,6 +1676,25 @@ table.template td.locked,
 div.edit table td.locked {
   background: #99d3de url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAIAAABvrngfAAAAI0lEQVQIW2OYefkeHP0HAwY0PpDBgMaHCiHzQUJofKgQmg0AMpJazRePtmQAAAAASUVORK5CYII=);
   cursor: default;
+}
+#boxTemplates fieldset {
+  background: none;
+  border-width: 1px 0 0 0;
+  padding: 14px 0 0;
+  margin-bottom: 0;
+}
+#boxTemplates fieldset legend {
+  color: #444;
+  padding: 0 8px;
+}
+#boxTemplates .filter {
+  border-bottom: 1px solid #e2e2e2;
+  margin-bottom: 10px;
+  padding: 0 0 15px;
+}
+#boxTemplates .filter .btn {
+  text-decoration: none;
+  padding: 4px 14px;
 }
 .tabs {
   float: right;
@@ -1928,7 +1989,16 @@ div.login .btn {
 .content-editor .mce-toolbar {
   padding: 0 10px 2px;
 }
-.content-editor .mce-toolbar.fixed-toolbar {
+.content-editor .mce-menubar {
+  display: none !important;
+}
+.content-editor .mce-ico {
+  font-size: 13px;
+}
+.content-editor .mce-btn button {
+  font-size: 12px;
+}
+.content-editor .fixed .mce-toolbar.fixed-toolbar {
   background: none repeat scroll 0 0 #FFFFFF;
   border-radius: 0 0 6px 6px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -1938,15 +2008,6 @@ div.login .btn {
   position: fixed;
   top: 53px;
   width: auto;
-}
-.content-editor .mce-menubar {
-  display: none;
-}
-.content-editor .mce-ico {
-  font-size: 13px;
-}
-.content-editor .mce-btn button {
-  font-size: 12px;
 }
 body .mce-window {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
